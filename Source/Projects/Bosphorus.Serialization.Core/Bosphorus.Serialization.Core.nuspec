@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Bosphorus.Serialization.Core</id>
+    <version>1.0.0.2</version>
+    <title>Bosphorus.Serialization.Core</title>
+    <authors>Onur Eker, Oğuz Kurumlu, Gökhan Demir</authors>
+    <owners>Onur Eker, Oğuz Kurumlu, Gökhan Demir</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Bosphorus Serialization Library</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>Bosphorus, Serialization, Binary, XML, JSON</tags>
+  </metadata>
+</package>

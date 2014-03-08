@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Bosphorus.Serialization.Default</id>
+    <version>1.0.0.2</version>
+    <title>Bosphorus.Serialization.Default</title>
+    <authors>Onur Eker, Oğuz Kurumlu, Gökhan Demir</authors>
+    <owners>Onur Eker, Oğuz Kurumlu, Gökhan Demir</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Bosphorus Serialization Default Implementation</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>Bosphorus, Serialization, Implementation</tags>
+  </metadata>
+</package>

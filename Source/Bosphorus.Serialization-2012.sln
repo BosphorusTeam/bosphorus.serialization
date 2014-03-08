@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects.Core", "Projects.Core", "{2D6CD3C3-9344-4145-ACAB-B004C0D195B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Serialization.Core", "Projects\Bosphorus.Serialization.Core\Bosphorus.Serialization.Core.csproj", "{CB559403-63CD-4945-8E52-14247BC4674B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects.Implimentation", "Projects.Implimentation", "{FB0AE1AC-BC87-412F-B157-D428415033EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos.Implimentation", "Demos.Implimentation", "{D4F9DEDB-64BC-4DDF-BD18-EBEC7FBC201F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Serialization.Default.Demo", "Demos\Bosphorus.Serialization.Default.Demo\Bosphorus.Serialization.Default.Demo.csproj", "{50693666-EDA2-46B5-BD2A-C7FB85915DE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Serialization.Default", "Projects\Bosphorus.Serialization.Default\Bosphorus.Serialization.Default.csproj", "{2AEEB2D7-AD83-467C-942F-A94EA7ABE004}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB559403-63CD-4945-8E52-14247BC4674B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB559403-63CD-4945-8E52-14247BC4674B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB559403-63CD-4945-8E52-14247BC4674B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB559403-63CD-4945-8E52-14247BC4674B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50693666-EDA2-46B5-BD2A-C7FB85915DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50693666-EDA2-46B5-BD2A-C7FB85915DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50693666-EDA2-46B5-BD2A-C7FB85915DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50693666-EDA2-46B5-BD2A-C7FB85915DE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AEEB2D7-AD83-467C-942F-A94EA7ABE004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEEB2D7-AD83-467C-942F-A94EA7ABE004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEEB2D7-AD83-467C-942F-A94EA7ABE004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEEB2D7-AD83-467C-942F-A94EA7ABE004}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CB559403-63CD-4945-8E52-14247BC4674B} = {2D6CD3C3-9344-4145-ACAB-B004C0D195B9}
+		{2AEEB2D7-AD83-467C-942F-A94EA7ABE004} = {FB0AE1AC-BC87-412F-B157-D428415033EE}
+		{50693666-EDA2-46B5-BD2A-C7FB85915DE6} = {D4F9DEDB-64BC-4DDF-BD18-EBEC7FBC201F}
+	EndGlobalSection
+EndGlobal
