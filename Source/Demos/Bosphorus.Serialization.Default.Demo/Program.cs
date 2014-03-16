@@ -1,46 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using Bosphorus.Container.Castle.Facade;
 using Bosphorus.Serialization.Core;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using Castle.Windsor.Installer;
 
 namespace Bosphorus.Serialization.Default.Demo
 {
-    class Program
+    class Program : IProgram
     {
-        private readonly static IWindsorContainer Container;
+        private readonly IXmlSerializer xmlSerializer;
+        private readonly IBinarySerializer binarySerializer;
+        private readonly IJsonSerializer jsonSerializer;
 
-        static Program()
+        public Program(IXmlSerializer xmlSerializer, IBinarySerializer binarySerializer, IJsonSerializer jsonSerializer)
         {
-            Container = new WindsorContainer();
-            Container.Install(
-                FromAssembly.InDirectory(new AssemblyFilter("."))
-            );
+            this.xmlSerializer = xmlSerializer;
+            this.binarySerializer = binarySerializer;
+            this.jsonSerializer = jsonSerializer;
         }
 
-        static void Main(string[] args)
+        public void Run(string[] args)
         {
             Customer customer = new Customer();
             customer.Age = 24;
             customer.Name = "Oğuz";
 
-            Serialization<IXmlSerializer>(customer);
-            Serialization<IBinarySerializer>(customer);
-            Serialization<IJsonSerializer>(customer);
+            xmlSerializer.Serialize(customer);
+            binarySerializer.Serialize(customer);
+            jsonSerializer.Serialize(customer);
         }
 
-        private static void Serialization<TSerializer>(Customer customer) where TSerializer : ISerializer
+        static void Main(string[] args)
         {
-            TSerializer serializer = Container.Resolve<TSerializer>();
-            string result = serializer.Serialize(customer);
-            Console.WriteLine(result);
-            serializer.Deserialize<Customer>(result);
+            WindowsRunner.Run<Program>(args);
         }
-
     }
 }

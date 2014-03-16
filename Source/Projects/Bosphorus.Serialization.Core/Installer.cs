@@ -13,9 +13,11 @@ namespace Bosphorus.Serialization.Core
                 allLoadedTypes
                     .BasedOn(typeof(IBinarySerializer))
                     .WithService.FirstInterface(),
+
                 allLoadedTypes
                     .BasedOn(typeof(IXmlSerializer))
                     .WithService.FirstInterface(),
+
                 allLoadedTypes
                     .BasedOn(typeof(IJsonSerializer))
                     .WithService.FirstInterface()
