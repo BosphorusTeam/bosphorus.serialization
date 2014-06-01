@@ -29,7 +29,7 @@ namespace Bosphorus.Serialization.Default.Demo
 
         static void Main(string[] args)
         {
-            WindowsRunner.Run<Program>(args);
+            ConsoleRunner.Run<Program>(args);
         }
     }
 }
