@@ -17,7 +17,8 @@ namespace Bosphorus.Serialization.Default
 
         public string Serialize(object model)
         {
-            using(MemoryStream memorystream = new MemoryStream()) {
+            using (MemoryStream memorystream = new MemoryStream())
+            {
                 formatter.Serialize(memorystream, model);
                 byte[] bytes = memorystream.ToArray();
                 string result = Encoding.Default.GetString(bytes);
@@ -29,7 +30,8 @@ namespace Bosphorus.Serialization.Default
         public Object Deserialize(Type type, string input)
         {
             byte[] bytes = Encoding.Default.GetBytes(input);
-            using(MemoryStream memoryStream = new MemoryStream(bytes)) {
+            using (MemoryStream memoryStream = new MemoryStream(bytes))
+            {
                 object result = formatter.Deserialize(memoryStream);
 
                 return result;

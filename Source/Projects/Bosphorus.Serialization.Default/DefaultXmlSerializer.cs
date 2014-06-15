@@ -11,7 +11,8 @@ namespace Bosphorus.Serialization.Default
         {
             Type type = model.GetType();
             XmlSerializer xmlSerializer = new XmlSerializer(type);
-            using(TextWriter textWriter = new StringWriter()) {
+            using (TextWriter textWriter = new StringWriter())
+            {
                 xmlSerializer.Serialize(textWriter, model);
 
                 String result = textWriter.ToString();
@@ -22,7 +23,8 @@ namespace Bosphorus.Serialization.Default
         public object Deserialize(Type type, string input)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(type);
-            using(TextReader textReader = new StringReader(input)) {
+            using (TextReader textReader = new StringReader(input))
+            {
                 object result = xmlSerializer.Deserialize(textReader);
 
                 return result;

@@ -9,6 +9,7 @@ namespace Bosphorus.Serialization.Core
     {
         protected override void Install(IWindsorContainer container, IConfigurationStore store, FromTypesDescriptor allLoadedTypes)
         {
+            //TODO: ISerializer için de default bir registration olmalı
             container.Register(
                 allLoadedTypes
                     .BasedOn(typeof(IBinarySerializer))
