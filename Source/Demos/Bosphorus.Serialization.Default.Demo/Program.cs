@@ -1,4 +1,4 @@
-﻿using Bosphorus.Container.Castle.Facade;
+﻿using Bosphorus.BootStapper.Runner;
 using Bosphorus.Serialization.Core;
 
 namespace Bosphorus.Serialization.Default.Demo
