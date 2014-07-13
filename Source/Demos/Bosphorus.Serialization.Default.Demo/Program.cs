@@ -1,4 +1,5 @@
-﻿using Bosphorus.BootStapper.Runner;
+﻿using Bosphorus.BootStapper.Program;
+using Bosphorus.BootStapper.Runner;
 using Bosphorus.Serialization.Core;
 
 namespace Bosphorus.Serialization.Default.Demo
