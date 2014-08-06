@@ -1,4 +1,5 @@
-﻿using Bosphorus.BootStapper.Program;
+﻿using Bosphorus.BootStapper.Common;
+using Bosphorus.BootStapper.Program;
 using Bosphorus.BootStapper.Runner;
 using Bosphorus.Serialization.Core;
 
@@ -30,7 +31,7 @@ namespace Bosphorus.Serialization.Default.Demo
 
         static void Main(string[] args)
         {
-            ConsoleRunner.Run<Program>(args);
+            ConsoleRunner.Run<Program>(Environment.Development, Perspective.Debug, args);
         }
     }
 }
