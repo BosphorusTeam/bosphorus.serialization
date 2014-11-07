@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace Bosphorus.Serialization.Core
+﻿namespace Bosphorus.Serialization.Core
 {
-    public interface ISerializer
+    public interface ISerializer<TModel>
     {
-        string Serialize(object model);
+        string Serialize(TModel model);
 
-        object Deserialize(Type type, string input);
+        TModel Deserialize(string input);
     }
 }

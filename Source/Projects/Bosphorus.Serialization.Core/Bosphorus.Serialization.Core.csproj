@@ -53,13 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinarySerializer.cs" />
     <Compile Include="IBinarySerializer.cs" />
     <Compile Include="IJsonSerializer.cs" />
     <Compile Include="Installer.cs" />
     <Compile Include="ISerializer.cs" />
     <Compile Include="IXmlSerializer.cs" />
+    <Compile Include="JsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerializerExtension.cs" />
+    <Compile Include="AbstractSerializer.cs" />
+    <Compile Include="Serializer.cs" />
+    <Compile Include="XmlSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

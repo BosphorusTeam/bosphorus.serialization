@@ -6,7 +6,7 @@ using Bosphorus.Serialization.Core;
 
 namespace Bosphorus.Serialization.Default
 {
-    public class DefaultBinarySerializer : IBinarySerializer
+    public class DefaultBinarySerializer<TModel> : IBinarySerializer<TModel>
     {
         private readonly BinaryFormatter formatter;
 
@@ -15,7 +15,7 @@ namespace Bosphorus.Serialization.Default
             formatter = new BinaryFormatter();
         }
 
-        public string Serialize(object model)
+        public string Serialize(TModel model)
         {
             using (MemoryStream memorystream = new MemoryStream())
             {
@@ -27,14 +27,14 @@ namespace Bosphorus.Serialization.Default
             }
         }
 
-        public Object Deserialize(Type type, string input)
+        public TModel Deserialize(string input)
         {
             byte[] bytes = Encoding.Default.GetBytes(input);
             using (MemoryStream memoryStream = new MemoryStream(bytes))
             {
                 object result = formatter.Deserialize(memoryStream);
 
-                return result;
+                return (TModel) result;
             }
         }
     }

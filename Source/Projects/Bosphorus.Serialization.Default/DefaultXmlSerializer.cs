@@ -2,14 +2,21 @@
 using System.IO;
 using System.Xml.Serialization;
 using Bosphorus.Serialization.Core;
+using XmlSerializer = System.Xml.Serialization.XmlSerializer;
 
 namespace Bosphorus.Serialization.Default
 {
-    public class DefaultXmlSerializer : IXmlSerializer
+    public class DefaultXmlSerializer<TModel> : IXmlSerializer<TModel>
     {
-        public string Serialize(object model)
+        private readonly Type type;
+
+        public DefaultXmlSerializer()
         {
-            Type type = model.GetType();
+            type = typeof (TModel);
+        }
+
+        public string Serialize(TModel model)
+        {
             XmlSerializer xmlSerializer = new XmlSerializer(type);
             using (TextWriter textWriter = new StringWriter())
             {
@@ -20,14 +27,14 @@ namespace Bosphorus.Serialization.Default
             }
         }
 
-        public object Deserialize(Type type, string input)
+        public TModel Deserialize(string input)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(type);
             using (TextReader textReader = new StringReader(input))
             {
                 object result = xmlSerializer.Deserialize(textReader);
 
-                return result;
+                return (TModel) result;
             }
         }
     }

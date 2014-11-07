@@ -1,6 +1,6 @@
 ﻿namespace Bosphorus.Serialization.Core
 {
-    public interface IBinarySerializer : ISerializer
+    public interface IBinarySerializer<TModel> : ISerializer<TModel>
     {
     }
 }

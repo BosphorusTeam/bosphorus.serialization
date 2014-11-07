@@ -12,16 +12,31 @@ namespace Bosphorus.Serialization.Core
             //TODO: ISerializer için de default bir registration olmalı
             container.Register(
                 allLoadedTypes
-                    .BasedOn(typeof(IBinarySerializer))
-                    .WithService.FirstInterface(),
+                    .BasedOn(typeof(IBinarySerializer<>))
+                    .WithService
+                    .FirstInterface(),
 
                 allLoadedTypes
-                    .BasedOn(typeof(IXmlSerializer))
-                    .WithService.FirstInterface(),
+                    .BasedOn(typeof(IXmlSerializer<>))
+                    .WithService
+                    .FirstInterface(),
 
                 allLoadedTypes
-                    .BasedOn(typeof(IJsonSerializer))
-                    .WithService.FirstInterface()
+                    .BasedOn(typeof(IJsonSerializer<>))
+                    .WithService
+                    .FirstInterface(),
+
+                Component
+                    .For<Serializer>(),
+
+                Component
+                    .For<XmlSerializer>(),
+
+                Component
+                    .For<BinarySerializer>(),
+
+                Component
+                    .For<JsonSerializer>()
             );
        }
     }

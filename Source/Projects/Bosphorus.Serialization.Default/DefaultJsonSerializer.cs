@@ -4,7 +4,7 @@ using Bosphorus.Serialization.Core;
 
 namespace Bosphorus.Serialization.Default
 {
-    public class DefaultJsonSerializer : IJsonSerializer
+    public class DefaultJsonSerializer<TModel> : IJsonSerializer<TModel>
     {
         private readonly JavaScriptSerializer javaScriptSerializer;
 
@@ -13,17 +13,15 @@ namespace Bosphorus.Serialization.Default
             javaScriptSerializer = new JavaScriptSerializer();
         }
 
-        public string Serialize(object model)
+        public string Serialize(TModel model)
         {
             String result = javaScriptSerializer.Serialize(model);
-
             return result;
         }
 
-        public object Deserialize(Type type, string input)
+        public TModel Deserialize(string input)
         {
-            object result = javaScriptSerializer.Deserialize(input, type);
-
+            TModel result = javaScriptSerializer.Deserialize<TModel>(input);
             return result;
         }
     }
