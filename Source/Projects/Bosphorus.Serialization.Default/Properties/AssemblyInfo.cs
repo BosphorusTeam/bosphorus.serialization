@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Bosphorus.Serialization.Default")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Bosphorus.Serialization.Default")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hewlett-Packard")]
+[assembly: AssemblyCompany("Bosphorus")]
 [assembly: AssemblyProduct("Bosphorus.Serialization.Default")]
-[assembly: AssemblyCopyright("Copyright © Hewlett-Packard 2014")]
+[assembly: AssemblyCopyright("Bosphorus")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
