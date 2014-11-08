@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Policy;
 using Bosphorus.Container.Castle.Registry;
 
 namespace Bosphorus.Serialization.Core
@@ -20,6 +21,13 @@ namespace Bosphorus.Serialization.Core
             ISerializer<TModel> serializer = (IXmlSerializer<TModel>)instance;
             return serializer;
 
+        }
+
+        protected override object GetSerializer(Type modelType)
+        {
+            Type genericType = typeof(IXmlSerializer<>).MakeGenericType(modelType);
+            object instance  = serviceRegistry.Get(genericType);
+            return instance;
         }
     }
 }

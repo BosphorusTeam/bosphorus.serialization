@@ -26,6 +26,9 @@ namespace Bosphorus.Serialization.Default.Demo
             customer.Age = 24;
             customer.Name = "Oğuz";
 
+            string input = xmlSerializer.Serialize(customer);
+            xmlSerializer.Deserialize(typeof (Customer), input);
+
             TestSerialization(customer, xmlSerializer);
             TestSerialization(customer, binarySerializer);
             TestSerialization(customer, jsonSerializer);

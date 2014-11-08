@@ -20,5 +20,12 @@ namespace Bosphorus.Serialization.Core
             ISerializer<TModel> serializer = (IJsonSerializer<TModel>)instance;
             return serializer;
         }
+
+        protected override object GetSerializer(Type modelType)
+        {
+            Type genericType = typeof(IJsonSerializer<>).MakeGenericType(modelType);
+            object instance = serviceRegistry.Get(genericType);
+            return instance;
+        }
     }
 }

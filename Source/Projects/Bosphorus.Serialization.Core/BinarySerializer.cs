@@ -21,5 +21,12 @@ namespace Bosphorus.Serialization.Core
             return serializer;
 
         }
+
+        protected override object GetSerializer(Type modelType)
+        {
+            Type genericType = typeof(IBinarySerializer<>).MakeGenericType(modelType);
+            object instance = serviceRegistry.Get(genericType);
+            return instance;
+        }
     }
 }
