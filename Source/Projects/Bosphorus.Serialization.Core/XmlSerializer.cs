@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Security.Policy;
-using Bosphorus.Container.Castle.Registry;
+using Bosphorus.Container.Castle.Extra;
 
 namespace Bosphorus.Serialization.Core
 {
