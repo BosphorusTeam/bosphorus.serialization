@@ -1,7 +1,7 @@
 ﻿using System;
 using Bosphorus.BootStapper.Common;
 using Bosphorus.BootStapper.Program;
-using Bosphorus.BootStapper.Runner;
+using Bosphorus.BootStapper.Runner.Console;
 using Bosphorus.Serialization.Core;
 using Environment = Bosphorus.BootStapper.Common.Environment;
 
