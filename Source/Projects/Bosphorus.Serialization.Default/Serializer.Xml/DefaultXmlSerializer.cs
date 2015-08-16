@@ -1,10 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Xml.Serialization;
-using Bosphorus.Serialization.Core;
+using Bosphorus.Serialization.Core.Serializer.Xml;
 using XmlSerializer = System.Xml.Serialization.XmlSerializer;
 
-namespace Bosphorus.Serialization.Default
+namespace Bosphorus.Serialization.Default.Serializer.Xml
 {
     public class DefaultXmlSerializer<TModel> : IXmlSerializer<TModel>
     {

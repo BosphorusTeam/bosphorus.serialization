@@ -1,29 +1,31 @@
-using System;
+﻿using System;
 using Castle.Windsor;
 
-namespace Bosphorus.Serialization.Core
+namespace Bosphorus.Serialization.Core.Serializer.Binary
 {
-    public class JsonSerializer : AbstractSerializer
+    public class GenericBinarySerializer : AbstractGenericSerializer
     {
         private readonly IWindsorContainer container;
 
-        public JsonSerializer(IWindsorContainer container)
+        public GenericBinarySerializer(IWindsorContainer container)
         {
             this.container = container;
         }
 
+
         protected override ISerializer<TModel> GetSerializer<TModel>()
         {
-            Type serviceType = typeof(IJsonSerializer<TModel>);
+            Type serviceType = typeof(IBinarySerializer<TModel>);
             object instance = container.Resolve(serviceType);
 
-            ISerializer<TModel> serializer = (IJsonSerializer<TModel>)instance;
+            ISerializer<TModel> serializer = (IBinarySerializer<TModel>)instance;
             return serializer;
+
         }
 
         protected override object GetSerializer(Type modelType)
         {
-            Type genericType = typeof(IJsonSerializer<>).MakeGenericType(modelType);
+            Type genericType = typeof(IBinarySerializer<>).MakeGenericType(modelType);
             object instance = container.Resolve(genericType);
             return instance;
         }

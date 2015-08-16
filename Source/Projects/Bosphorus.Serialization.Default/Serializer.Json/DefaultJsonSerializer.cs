@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Script.Serialization;
-using Bosphorus.Serialization.Core;
+using Bosphorus.Serialization.Core.Serializer.Json;
 
-namespace Bosphorus.Serialization.Default
+namespace Bosphorus.Serialization.Default.Serializer.Json
 {
     public class DefaultJsonSerializer<TModel> : IJsonSerializer<TModel>
     {

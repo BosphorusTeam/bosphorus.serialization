@@ -1,23 +1,26 @@
 ﻿using System;
-using Bosphorus.BootStapper.Common;
-using Bosphorus.BootStapper.Program;
 using Bosphorus.BootStapper.Runner.Console;
+using Bosphorus.Common.Core.Application;
 using Bosphorus.Serialization.Core;
-using Environment = Bosphorus.BootStapper.Common.Environment;
+using Bosphorus.Serialization.Core.Serializer;
+using Bosphorus.Serialization.Core.Serializer.Binary;
+using Bosphorus.Serialization.Core.Serializer.Json;
+using Bosphorus.Serialization.Core.Serializer.Xml;
+using Environment = Bosphorus.Common.Core.Application.Environment;
 
 namespace Bosphorus.Serialization.Default.Demo
 {
     class Program : IProgram
     {
-        private readonly XmlSerializer xmlSerializer;
-        private readonly BinarySerializer binarySerializer;
-        private readonly JsonSerializer jsonSerializer;
+        private readonly GenericXmlSerializer genericXmlSerializer;
+        private readonly GenericBinarySerializer genericBinarySerializer;
+        private readonly GenericJsonSerializer genericJsonSerializer;
 
-        public Program(XmlSerializer xmlSerializer, BinarySerializer binarySerializer, JsonSerializer jsonSerializer)
+        public Program(GenericXmlSerializer genericXmlSerializer, GenericBinarySerializer genericBinarySerializer, GenericJsonSerializer genericJsonSerializer)
         {
-            this.xmlSerializer = xmlSerializer;
-            this.binarySerializer = binarySerializer;
-            this.jsonSerializer = jsonSerializer;
+            this.genericXmlSerializer = genericXmlSerializer;
+            this.genericBinarySerializer = genericBinarySerializer;
+            this.genericJsonSerializer = genericJsonSerializer;
         }
 
         public void Run(string[] args)
@@ -26,32 +29,26 @@ namespace Bosphorus.Serialization.Default.Demo
             customer.Age = 24;
             customer.Name = "Oğuz";
 
-            string input = xmlSerializer.Serialize(customer);
-            xmlSerializer.Deserialize(typeof (Customer), input);
+            string input = genericXmlSerializer.Serialize(customer);
+            genericXmlSerializer.Deserialize(typeof (Customer), input);
 
-            TestSerialization(customer, xmlSerializer);
-            TestSerialization(customer, binarySerializer);
-            TestSerialization(customer, jsonSerializer);
+            TestSerialization(customer, genericXmlSerializer);
+            TestSerialization(customer, genericBinarySerializer);
+            TestSerialization(customer, genericJsonSerializer);
 
-            TestDeserialization(customer, xmlSerializer);
-            TestDeserialization(customer, binarySerializer);
-            TestDeserialization(customer, jsonSerializer);
-
-            CustomModel customModel = new CustomModel();
-            customModel.Customer = customer;
-            customModel.Type = typeof (Customer);
-
-            TestSerialization(customModel, xmlSerializer);
+            TestDeserialization(customer, genericXmlSerializer);
+            TestDeserialization(customer, genericBinarySerializer);
+            TestDeserialization(customer, genericJsonSerializer);
         }
 
-        private void TestDeserialization<TModel>(TModel model, AbstractSerializer serializer)
+        private void TestDeserialization<TModel>(TModel model, AbstractGenericSerializer serializer)
         {
             string serialize = serializer.Serialize(model);
             TModel deserialize = serializer.Deserialize<TModel>(serialize);
             Console.WriteLine(deserialize);
         }
 
-        private void TestSerialization<TModel>(TModel model, AbstractSerializer serializer)
+        private void TestSerialization<TModel>(TModel model, AbstractGenericSerializer serializer)
         {
             string serialize = serializer.Serialize(model);
             Console.WriteLine(serialize);

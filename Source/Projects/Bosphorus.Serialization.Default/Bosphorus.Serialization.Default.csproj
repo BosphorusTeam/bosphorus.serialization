@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultBinarySerializer.cs" />
-    <Compile Include="DefaultJsonSerializer.cs" />
-    <Compile Include="DefaultXmlSerializer.cs" />
+    <Compile Include="Serializer.Binary\DefaultBinarySerializer.cs" />
+    <Compile Include="Serializer.Json\DefaultJsonSerializer.cs" />
+    <Compile Include="Serializer.Xml\DefaultXmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

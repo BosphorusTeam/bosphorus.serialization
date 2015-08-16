@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Bosphorus.Serialization.Core
+namespace Bosphorus.Serialization.Core.Serializer
 {
-    public abstract class AbstractSerializer
+    public abstract class AbstractGenericSerializer
     {
         public string Serialize<TModel>(TModel model)
         {

@@ -1,10 +1,9 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using Bosphorus.Serialization.Core;
+using Bosphorus.Serialization.Core.Serializer.Binary;
 
-namespace Bosphorus.Serialization.Default
+namespace Bosphorus.Serialization.Default.Serializer.Binary
 {
     public class DefaultBinarySerializer<TModel> : IBinarySerializer<TModel>
     {

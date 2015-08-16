@@ -1,13 +1,13 @@
 ﻿using System;
 using Castle.Windsor;
 
-namespace Bosphorus.Serialization.Core
+namespace Bosphorus.Serialization.Core.Serializer
 {
-    public class Serializer : AbstractSerializer
+    public class GenericSerializer : AbstractGenericSerializer
     {
         private readonly IWindsorContainer container;
 
-        public Serializer(IWindsorContainer container)
+        public GenericSerializer(IWindsorContainer container)
         {
             this.container = container;
         }

@@ -1,4 +1,4 @@
-﻿namespace Bosphorus.Serialization.Core
+﻿namespace Bosphorus.Serialization.Core.Serializer
 {
     public interface ISerializer<TModel>
     {

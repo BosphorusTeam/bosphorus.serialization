@@ -4,6 +4,11 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Bosphorus.Container.Castle.Registration;
+using Bosphorus.Container.Castle.Registration.Installer;
+using Bosphorus.Serialization.Core.Serializer;
+using Bosphorus.Serialization.Core.Serializer.Binary;
+using Bosphorus.Serialization.Core.Serializer.Json;
+using Bosphorus.Serialization.Core.Serializer.Xml;
 using Castle.Core;
 using Castle.Core.Internal;
 using Castle.MicroKernel;
@@ -14,47 +19,30 @@ using Castle.Windsor;
 
 namespace Bosphorus.Serialization.Core
 {
-    public class Installer : AbstractWindsorInstaller
+    public class Installer : AbstractWindsorInstaller, IInfrastructureInstaller
     {
         protected override void Install(IWindsorContainer container, IConfigurationStore store, FromTypesDescriptor allLoadedTypes)
         {
             //TODO: ISerializer için de default bir registration olmalı
             container.Register(
-                /*
-            Component
-                .For(typeof(IXmlSerializer<>))
-                .UsingFactoryMethod(Temp)
-                .IsFallback(),
-                */
-
-                allLoadedTypes
-                    .BasedOn(typeof(IXmlSerializer<>))
-                    .WithService
-                    .FirstInterface(),
-
-                allLoadedTypes
-                    .BasedOn(typeof(IBinarySerializer<>))
-                    .WithService
-                    .FirstInterface(),
-
-                allLoadedTypes
-                    .BasedOn(typeof(IJsonSerializer<>))
-                    .WithService
-                    .FirstInterface(),
+                Component
+                    .For(typeof(IXmlSerializer<>))
+                    .UsingFactoryMethod(Temp)
+                    .IsFallback(),
 
                 Component
-                    .For<Serializer>(),
+                    .For<GenericSerializer>(),
 
                 Component
-                    .For<XmlSerializer>(),
+                    .For<GenericXmlSerializer>(),
 
                 Component
-                    .For<BinarySerializer>(),
+                    .For<GenericBinarySerializer>(),
 
                 Component
-                    .For<JsonSerializer>()
+                    .For<GenericJsonSerializer>()
             );
-       }
+        }
 
         private object Temp(IKernel arg1, ComponentModel arg2, CreationContext arg3)
         {
