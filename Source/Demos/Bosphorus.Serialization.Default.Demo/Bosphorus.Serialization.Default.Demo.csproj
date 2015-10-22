@@ -49,7 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractSerializerDemo.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="GenericBinarySerializerDemo.cs" />
+    <Compile Include="GenericJsonSerializerDemo.cs" />
+    <Compile Include="GenericXmlSerializerDemo.cs" />
     <Compile Include="Installer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +82,10 @@
     <ProjectReference Include="..\..\Projects\Bosphorus.Serialization.Default\Bosphorus.Serialization.Default.csproj">
       <Project>{2aeeb2d7-ad83-467c-942f-a94ea7abe004}</Project>
       <Name>Bosphorus.Serialization.Default</Name>
+    </ProjectReference>
+    <ProjectReference Include="A:\Bosphorus\bosphorus.assemble\Source\Projects\Bosphorus.Demo.Runner\Bosphorus.Demo.Runner.csproj">
+      <Project>{38F86C1E-ABAA-42AC-ADB3-4F6579110DBF}</Project>
+      <Name>Bosphorus.Demo.Runner</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
