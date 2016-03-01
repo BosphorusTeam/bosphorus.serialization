@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bosphorus.Demo.Runner.Executable;
+using Bosphorus.Assemble.BootStrapper.Runner.Demo.ExecutableItem;
 using Bosphorus.Serialization.Core.Serializer;
 using Castle.Windsor;
 

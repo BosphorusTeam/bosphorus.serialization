@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using Bosphorus.Container.Castle.Registration;
-using Bosphorus.Container.Castle.Registration.Installer;
+using Bosphorus.Common.Api.Container;
 using Bosphorus.Serialization.Core.Serializer;
 using Bosphorus.Serialization.Core.Serializer.Binary;
 using Bosphorus.Serialization.Core.Serializer.Json;
@@ -19,9 +18,9 @@ using Castle.Windsor;
 
 namespace Bosphorus.Serialization.Core
 {
-    public class Installer : AbstractWindsorInstaller, IInfrastructureInstaller
+    public class Installer : IBosphorusInstaller
     {
-        protected override void Install(IWindsorContainer container, IConfigurationStore store, FromTypesDescriptor allLoadedTypes)
+        public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             //TODO: ISerializer için de default bir registration olmalı
             container.Register(

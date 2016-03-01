@@ -1,6 +1,5 @@
-﻿using Bosphorus.BootStapper.Runner.Console;
-using Bosphorus.Common.Core.Application;
-using Bosphorus.Demo.Runner;
+﻿using Bosphorus.Assemble.BootStrapper.Runner.Demo;
+using Bosphorus.Common.Application;
 
 namespace Bosphorus.Serialization.Default.Demo
 {
@@ -9,7 +8,7 @@ namespace Bosphorus.Serialization.Default.Demo
 
         static void Main(string[] args)
         {
-            DemoRunner.Run(Environment.Local, Perspective.Debug, args);
+            DemoRunner.Run(Environment.Local, Perspective.Debug, typeof(IDemoInstaller));
         }
     }
 }

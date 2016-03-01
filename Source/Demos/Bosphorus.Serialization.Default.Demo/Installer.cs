@@ -1,6 +1,4 @@
-﻿using Bosphorus.Container.Castle.Registration;
-using Bosphorus.Container.Castle.Registration.Installer;
-using Bosphorus.Serialization.Core;
+﻿using Bosphorus.Serialization.Core;
 using Bosphorus.Serialization.Core.Serializer.Binary;
 using Bosphorus.Serialization.Core.Serializer.Json;
 using Bosphorus.Serialization.Core.Serializer.Xml;
@@ -13,9 +11,9 @@ using Castle.Windsor;
 
 namespace Bosphorus.Serialization.Default.Demo
 {
-    public class Installer: AbstractWindsorInstaller, IInfrastructureInstaller
+    public class Installer: IDemoInstaller
     {
-        protected override void Install(IWindsorContainer container, IConfigurationStore store, FromTypesDescriptor allLoadedTypes)
+        public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
                 Component
