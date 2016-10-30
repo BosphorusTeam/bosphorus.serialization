@@ -20,13 +20,6 @@ namespace Bosphorus.Serialization.Core.Serializer.Binary
             return result;
         }
 
-        public byte[] Serialize<TModel>(IEnumerable<TModel> models)
-        {
-            var serializer = container.Resolve<IBinarySerializer<TModel>>();
-            var result = serializer.Serialize(model);
-            return result;
-        }
-
         public TModel Deserialize<TModel>(byte[] serialized)
         {
             var deserializer = container.Resolve<IBinaryDeserializer<TModel>>();
