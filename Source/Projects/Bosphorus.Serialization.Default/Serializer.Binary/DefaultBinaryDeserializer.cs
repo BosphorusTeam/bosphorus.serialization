@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Bosphorus.Serialization.Core.Serializer;
 using Bosphorus.Serialization.Core.Serializer.Binary;
 
 namespace Bosphorus.Serialization.Default.Serializer.Binary
@@ -18,7 +20,6 @@ namespace Bosphorus.Serialization.Default.Serializer.Binary
             using (MemoryStream memoryStream = new MemoryStream(serialized))
             {
                 object result = formatter.Deserialize(memoryStream);
-
                 return (TModel)result;
             }
         }
