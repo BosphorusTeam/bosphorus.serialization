@@ -3,7 +3,7 @@ using Castle.Windsor;
 
 namespace Bosphorus.Serialization.Core.Serializer.Binary
 {
-    public class GenericBinarySerializer : AbstractGenericSerializer
+    public class GenericBinarySerializer
     {
         private readonly IWindsorContainer container;
 
@@ -12,22 +12,17 @@ namespace Bosphorus.Serialization.Core.Serializer.Binary
             this.container = container;
         }
 
-
-        protected override ISerializer<TModel> GetSerializer<TModel>()
+        public byte[] Serialize<TModel>(TModel model)
         {
-            Type serviceType = typeof(IBinarySerializer<TModel>);
-            object instance = container.Resolve(serviceType);
-
-            ISerializer<TModel> serializer = (IBinarySerializer<TModel>)instance;
-            return serializer;
-
+            var serializer = container.Resolve<IBinarySerializer<TModel>>();
+            var result = serializer.Serialize(model);
+            return result;
         }
-
-        protected override object GetSerializer(Type modelType)
+        public TModel Deserialize<TModel>(byte[] serialized)
         {
-            Type genericType = typeof(IBinarySerializer<>).MakeGenericType(modelType);
-            object instance = container.Resolve(genericType);
-            return instance;
+            var deserializer = container.Resolve<IBinaryDeserializer<TModel>>();
+            var result = deserializer.Deserialize(serialized);
+            return result;
         }
     }
 }

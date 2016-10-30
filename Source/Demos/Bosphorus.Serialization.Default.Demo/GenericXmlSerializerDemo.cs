@@ -3,14 +3,14 @@ using Castle.Windsor;
 
 namespace Bosphorus.Serialization.Default.Demo
 {
-    public class GenericXmlSerializerDemo: AbstractSerializerDemo<GenericXmlSerializer>
+    public class GenericXmlSerializerDemo: AbstractSerializerDemo
     {
         public GenericXmlSerializerDemo(IWindsorContainer container, GenericXmlSerializer genericSerializer) 
             : base(container, genericSerializer)
         {
         }
 
-        public string Serialization_Customer()
+        public object Serialization_Customer()
         {
             Customer customer = BuildCustomer();
             var result = TestSerialization(customer);

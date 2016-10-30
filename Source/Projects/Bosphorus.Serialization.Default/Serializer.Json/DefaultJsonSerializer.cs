@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Script.Serialization;
+﻿using System.Web.Script.Serialization;
 using Bosphorus.Serialization.Core.Serializer.Json;
 
 namespace Bosphorus.Serialization.Default.Serializer.Json
@@ -8,21 +7,16 @@ namespace Bosphorus.Serialization.Default.Serializer.Json
     {
         private readonly JavaScriptSerializer javaScriptSerializer;
 
-        public DefaultJsonSerializer()
+        public DefaultJsonSerializer(JavaScriptSerializer javaScriptSerializer)
         {
-            javaScriptSerializer = new JavaScriptSerializer();
+            this.javaScriptSerializer = javaScriptSerializer;
         }
 
         public string Serialize(TModel model)
         {
-            String result = javaScriptSerializer.Serialize(model);
+            var result = javaScriptSerializer.Serialize(model);
             return result;
         }
 
-        public TModel Deserialize(string input)
-        {
-            TModel result = javaScriptSerializer.Deserialize<TModel>(input);
-            return result;
-        }
     }
 }

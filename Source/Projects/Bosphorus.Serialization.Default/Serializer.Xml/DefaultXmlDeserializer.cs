@@ -4,22 +4,21 @@ using XmlSerializer = System.Xml.Serialization.XmlSerializer;
 
 namespace Bosphorus.Serialization.Default.Serializer.Xml
 {
-    public class DefaultXmlSerializer<TModel> : IXmlSerializer<TModel>
+    public class DefaultXmlDeserializer<TModel> : IXmlDeserializer<TModel>
     {
         private readonly XmlSerializer xmlSerializer;
 
-        public DefaultXmlSerializer()
+        public DefaultXmlDeserializer()
         {
             xmlSerializer = new XmlSerializer(typeof(TModel));
         }
 
-        public string Serialize(TModel model)
+        public TModel Deserialize(string input)
         {
-            using (TextWriter textWriter = new StringWriter())
+            using (TextReader textReader = new StringReader(input))
             {
-                xmlSerializer.Serialize(textWriter, model);
-                var result = textWriter.ToString();
-                return result;
+                object result = xmlSerializer.Deserialize(textReader);
+                return (TModel) result;
             }
         }
     }

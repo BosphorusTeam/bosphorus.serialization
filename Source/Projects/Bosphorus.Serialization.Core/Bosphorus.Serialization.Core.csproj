@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="Serializer.Binary\GenericBinarySerializer.cs" />
     <Compile Include="Serializer.Binary\IBinarySerializer.cs" />
+    <Compile Include="Serializer.Binary\IBinaryDeserializer.cs" />
+    <Compile Include="Serializer.Json\IJsonDeserializer.cs" />
     <Compile Include="Serializer.Json\IJsonSerializer.cs" />
     <Compile Include="ImplementationSelector.cs">
       <SubType>Form</SubType>
@@ -64,11 +66,12 @@
       <DependentUpon>ImplementationSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Installer.cs" />
+    <Compile Include="Serializer.Xml\IXmlDeserialzier.cs" />
+    <Compile Include="Serializer\IDeserializer.cs" />
     <Compile Include="Serializer\ISerializer.cs" />
     <Compile Include="Serializer.Xml\IXmlSerializer.cs" />
     <Compile Include="Serializer.Json\GenericJsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serializer\AbstractGenericSerializer.cs" />
     <Compile Include="Serializer\GenericSerializer.cs" />
     <Compile Include="Serializer.Xml\GenericXmlSerializer.cs" />
   </ItemGroup>

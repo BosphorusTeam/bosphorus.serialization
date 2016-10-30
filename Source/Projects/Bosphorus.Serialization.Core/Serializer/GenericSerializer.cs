@@ -1,9 +1,8 @@
-﻿using System;
-using Castle.Windsor;
+﻿using Castle.Windsor;
 
 namespace Bosphorus.Serialization.Core.Serializer
 {
-    public class GenericSerializer : AbstractGenericSerializer
+    public class GenericSerializer
     {
         private readonly IWindsorContainer container;
 
@@ -12,21 +11,18 @@ namespace Bosphorus.Serialization.Core.Serializer
             this.container = container;
         }
 
-        protected override ISerializer<TModel> GetSerializer<TModel>()
+        public TSerialized Serialize<TModel, TSerialized>(TModel model)
         {
-            Type serviceType = typeof(ISerializer<TModel>);
-            object instance = container.Resolve(serviceType);
-
-            ISerializer<TModel> serializer = (ISerializer<TModel>)instance;
-            return serializer;
-
+            var serializer = container.Resolve<ISerializer<TModel, TSerialized>>();
+            var result = serializer.Serialize(model);
+            return result;
         }
 
-        protected override object GetSerializer(Type modelType)
+        public TModel Deserialize<TModel, TSerialized>(TSerialized serialized)
         {
-            Type genericType = typeof(ISerializer<>).MakeGenericType(modelType);
-            object instance = container.Resolve(genericType);
-            return instance;
+            var deserializer = container.Resolve<IDeserializer<TModel, TSerialized>>();
+            var result = deserializer.Deserialize(serialized);
+            return result;
         }
     }
 }

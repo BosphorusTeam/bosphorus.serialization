@@ -1,16 +1,8 @@
 ﻿namespace Bosphorus.Serialization.Core.Serializer
 {
-    public interface ISerializer<TModel>
+    public interface ISerializer<in TModel, out TSerialized>
     {
-        string Serialize(TModel model);
-
-        TModel Deserialize(string input);
+        TSerialized Serialize(TModel model);
     }
 
-    public interface ISerializer
-    {
-        string Serialize(object model);
-
-        object Deserialize(string input);
-    }
 }

@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Serializer.Binary\DefaultBinaryDeserializer.cs" />
     <Compile Include="Serializer.Binary\DefaultBinarySerializer.cs" />
+    <Compile Include="Serializer.Json\DefaultJsonDeserializer.cs" />
     <Compile Include="Serializer.Json\DefaultJsonSerializer.cs" />
+    <Compile Include="Serializer.Xml\DefaultXmlDeserializer.cs" />
     <Compile Include="Serializer.Xml\DefaultXmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

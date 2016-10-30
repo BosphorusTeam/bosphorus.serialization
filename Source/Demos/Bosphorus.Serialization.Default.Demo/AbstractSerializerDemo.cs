@@ -5,12 +5,11 @@ using Castle.Windsor;
 
 namespace Bosphorus.Serialization.Default.Demo
 {
-    public abstract class AbstractSerializerDemo<TGenericSerializer>: AbstractMethodExecutionItemList
-        where TGenericSerializer: AbstractGenericSerializer
+    public abstract class AbstractSerializerDemo : AbstractMethodExecutionItemList
     {
-        private readonly TGenericSerializer genericSerializer;
+        private readonly dynamic genericSerializer;
 
-        protected AbstractSerializerDemo(IWindsorContainer container, TGenericSerializer genericSerializer) 
+        protected AbstractSerializerDemo(IWindsorContainer container, dynamic genericSerializer) 
             : base(container)
         {
             this.genericSerializer = genericSerializer;
@@ -25,16 +24,16 @@ namespace Bosphorus.Serialization.Default.Demo
             return customer;
         }
 
-        protected string TestSerialization<TModel>(TModel model)
+        protected object TestSerialization<TModel>(TModel model)
         {
-            string serialize = genericSerializer.Serialize(model);
+            var serialize = genericSerializer.Serialize(model);
             Console.WriteLine(serialize);
             return serialize;
         }
 
         protected TModel TestDeserialization<TModel>(TModel model)
         {
-            string serialize = genericSerializer.Serialize(model);
+            var serialize = genericSerializer.Serialize(model);
             TModel deserialize = genericSerializer.Deserialize<TModel>(serialize);
             return deserialize;
         }

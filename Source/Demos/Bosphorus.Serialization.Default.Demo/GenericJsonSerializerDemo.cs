@@ -4,14 +4,14 @@ using Castle.Windsor;
 
 namespace Bosphorus.Serialization.Default.Demo
 {
-    public class GenericJsonSerializerDemo : AbstractSerializerDemo<GenericJsonSerializer>
+    public class GenericJsonSerializerDemo : AbstractSerializerDemo
     {
         public GenericJsonSerializerDemo(IWindsorContainer container, GenericJsonSerializer genericSerializer) 
             : base(container, genericSerializer)
         {
         }
 
-        public string Serialization_Customer()
+        public object Serialization_Customer()
         {
             Customer customer = BuildCustomer();
             var result = TestSerialization(customer);
