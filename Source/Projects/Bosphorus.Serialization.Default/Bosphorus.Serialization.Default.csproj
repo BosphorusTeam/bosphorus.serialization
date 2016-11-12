@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Polenter.SharpSerializer, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8f4f20011571ee5f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpSerializer.2.20\lib\net20\Polenter.SharpSerializer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -43,6 +47,8 @@
   <ItemGroup>
     <Compile Include="Serializer.Binary\DefaultBinaryDeserializer.cs" />
     <Compile Include="Serializer.Binary\DefaultBinarySerializer.cs" />
+    <Compile Include="Serializer.Binary\Sharp\SharpBinaryDeserializer.cs" />
+    <Compile Include="Serializer.Binary\Sharp\SharpBinarySerializer.cs" />
     <Compile Include="Serializer.Json\DefaultJsonDeserializer.cs" />
     <Compile Include="Serializer.Json\DefaultJsonSerializer.cs" />
     <Compile Include="Serializer.Xml\DefaultXmlDeserializer.cs" />
@@ -55,6 +61,10 @@
       <Name>Bosphorus.Serialization.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

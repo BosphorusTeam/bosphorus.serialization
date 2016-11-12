@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Serializer.Binary\Decoration.Compress\DeserializerDecompressionDecorator.cs" />
+    <Compile Include="Serializer.Binary\Decoration.Compress\SerializerCompressionDecorator.cs" />
     <Compile Include="Serializer.Binary\GenericBinarySerializer.cs" />
     <Compile Include="Serializer.Binary\IBinarySerializer.cs" />
     <Compile Include="Serializer.Binary\IBinaryDeserializer.cs" />
